@@ -16,7 +16,7 @@ building_elements = ["Site", "Building", "BuildingStorey",
                      "WallStandardCase", "Window", "Door", "Roof", "Beam", "Slab"]
 
 XYZ = ["Stair", "StairFlight", "Railing",
-       "FurnitureType", "FurnishingElement", ]
+       "FurnitureType", "FurnishingElement"]
 
 
 with open("ifcJsonData.json", "r") as json_file:
