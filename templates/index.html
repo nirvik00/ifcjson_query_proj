@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='three.min.js')}}"
+		></script>
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='OrbitControls.js')}}"
+		></script>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='nsfuncGen3d.js')}}"
+		></script>
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='nsfunc.js')}}"
+		></script>
+	</head>
+	<body>
+		<div id="viewer3d"></div>
+		<div id="UI-1">
+			<h1>Json Path Viewer</h1>
+			<div id="info_div">
+				<table>
+					<tr>
+						<td>Spaces</td>
+						<td>
+							<input
+								type="checkbox"
+								id="cb_spaces"
+								checked="true"
+								onchange="updateView();"
+							/>
+						</td>
+					</tr>
+					<tr>
+						<td>Walls</td>
+						<td>
+							<input
+								type="checkbox"
+								id="cb_walls"
+								checked="true"
+								onchange="updateView();"
+							/>
+						</td>
+					</tr>
+					<tr>
+						<td>slabs</td>
+						<td>
+							<input
+								type="checkbox"
+								id="cb_slabs"
+								checked="true"
+								onchange="updateView();"
+							/>
+						</td>
+					</tr>
+					<tr>
+						<td>doors</td>
+						<td>
+							<input
+								type="checkbox"
+								id="cb_doors"
+								checked="true"
+								onchange="updateView();"
+							/>
+						</td>
+					</tr>
+					<tr>
+						<td>windows</td>
+						<td>
+							<input
+								type="checkbox"
+								id="cb_windows"
+								checked="true"
+								onchange="updateView();"
+							/>
+						</td>
+					</tr>
+					<tr>
+						<td>beams</td>
+						<td>
+							<input
+								type="checkbox"
+								id="cb_beams"
+								checked="true"
+								onchange="updateView();"
+							/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="info_selected_div"></div>
+		</div>
+		<script>
+			var scene3d, camera3d, renderer3d, controls3d, raycaster;
+			var meshArr3d=[];
+			var intxArr=[];
+			var mouse=new THREE.Vector2;
+			const jsonDataIn={{ data|safe }};
+			var ObjArr=[];
+			showElements(jsonDataIn)
+		</script>
+	</body>
+</html>

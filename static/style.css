@@ -1,0 +1,31 @@
+body {
+	background: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font: rgb(0, 0, 0);
+}
+
+.datatable {
+	border: 1px dotted white;
+	text-align: left;
+}
+
+th {
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+}
+
+td {
+	color: rgb(0, 0, 0);
+	padding: 3px;
+}
+
+#UI-1 {
+	position: absolute;
+	left: 10px;
+	top: 0px;
+	z-index: 100;
+	opacity: 50;
+	color: rgb(0, 0, 0);
+	width: 25%;
+}
