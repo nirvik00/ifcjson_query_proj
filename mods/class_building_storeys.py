@@ -4,7 +4,8 @@ from jsonpath_ng.ext import parse
 
 
 class building_storey_obj(object):
-    def __init__(self, data):
+    def __init__(self, data, get_obj=False):
+        self.get_obj = get_obj
         self.data = data
         self.num = 0
         self.simplified_data_arr = []  # array of all simple space objects
@@ -48,7 +49,6 @@ class building_storey_obj(object):
             for i in x:
                 ele.append(i.value)
             out['contains_elements'] = ele
-
         except:
             pass
         return out

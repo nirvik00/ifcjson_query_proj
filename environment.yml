@@ -1,0 +1,12 @@
+name: env_data
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - flask
+  - gunicorn
+  - jsonpath-ng
+  - flask-cors
+  - pip
+prefix: /Users/nirviksaha/opt/miniconda3/envs/env_data

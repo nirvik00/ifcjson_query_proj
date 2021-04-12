@@ -4,7 +4,8 @@ from jsonpath_ng.ext import parse
 
 
 class space_obj(object):
-    def __init__(self, data):
+    def __init__(self, data, get_obj=False):
+        self.get_obj = get_obj
         self.data = data
         self.num = 0
         self.simplified_data_arr = []  # array of all simple space objects
@@ -47,12 +48,15 @@ class space_obj(object):
         #
         # from entire data find json-block with OBJ & match ref
         try:
-            x = parse("$..representations").find(json2)
-            out['shape_representation_ref_obj'] = x[0].value[0]['ref']
-            s = "$..data[?(@.type=='shapeRepresentation' " + \
-                "& @.globalId == '"+str(x[0].value[0]['ref'])+"')]"
-            a = parse(s).find(self.data)[0].value["items"][0]
-            out['OBJ'] = a
+            if self.get_obj:
+                x = parse("$..representations").find(json2)
+                out['shape_representation_ref_obj'] = x[0].value[0]['ref']
+                s = "$..data[?(@.type=='shapeRepresentation' " + \
+                    "& @.globalId == '"+str(x[0].value[0]['ref'])+"')]"
+                a = parse(s).find(self.data)[0].value["items"][0]
+                out['OBJ'] = a
+            else:
+                out['OBJ'] = "suppressed"
         except:
             pass
         return out

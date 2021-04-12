@@ -18,6 +18,7 @@ function showElements(data) {
 
 	draw3d();
 }
+
 function updateView() {
 	console.log('update');
 	spaces = document.getElementById('cb_spaces').checked;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>text-query</title>
+		<!-- <script
+			type="text/javascript"
+			src="{{url_for('static', filename='lib_axios.min.js')}}"
+		></script> -->
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='lib_jsonpath.js')}}"
+		></script>
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+		></script>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<button id="rawData"><a href="/">View raw data</a></button>
+				</td>
+				<td>
+					<button id="view3dquery"><a href="/run">Viewer3d - Query</a></button>
+				</td>
+				<td>
+					<button id="textQuery"><a href="/query">Text - Query</a></button>
+				</td>
+			</tr>
+		</table>
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='nsBtnNavigate.js')}}"
+		></script>
+		<h1>Text & Query</h1>
+		<h3>JsonPath Query</h3>
+		<script src="{{url_for('static', filename='nsQuery.js')}}"></script>
+		<div>
+			<label>Search for</label>
+			<input type="text" value="$..walls[*]" id="jsonpath-query" />
+			<button id="btn_search" onclick="search()">JsonPath Search</button>
+			<div id="jsonpath-return"></div>
+			<br />
+		</div>
+
+		<h3>Interactive Query</h3>
+		<label>Reset Search / Show Building Elements</label>
+		<button id="btnGotoRoot" onclick="gotoRoot()">Goto Root</button>
+		<div id="data-container" style="margin-left: 50px"></div>
+	</body>
+
+	<script>
+		const inputData= {{data|safe}};
+		init(inputData);
+		document.getElementById('btn_search').addEventListener('onclick', search);
+	</script>
+</html>

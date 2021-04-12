@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.getElementById("myButton").onclick = function () {
+				location.href = "www.yoursite.com";
+			};
+		</script>
+		</script>
+		<table>
+			<tr>
+				<td>
+					<button id="rawData"><a href="/">View raw data</a></button>
+				</td>
+				<td>
+					<button id="view3dquery"><a href="/run">Viewer3d - Query</a></button>
+				</td>
+				<td>
+					<button id="textQuery"><a href="/query">Text - Query</a></button>
+				</td>
+			</tr>
+		</table>
+		<script type="text/javascript" src="{{url_for('static', filename='nsBtnNavigate.js')}}"></script>
+		<br />
+		open in console
+		<br />
+		mac: command + alt + i
+		<br />
+		win: F12
+		<script>
+			const inputData2= {{data|safe}};
+			console.clear();
+			console.log(inputData2);
+		</script>
+	</body>
+</html>

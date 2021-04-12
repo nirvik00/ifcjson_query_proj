@@ -4,7 +4,8 @@ from jsonpath_ng.ext import parse
 
 
 class slab_obj(object):
-    def __init__(self, data):
+    def __init__(self, data, get_obj = False):
+        self.get_obj = get_obj
         self.data = data
         self.num = 0
         self.simplified_data_arr = []  # array of all simple space objects
@@ -84,13 +85,17 @@ class slab_obj(object):
         #
         # obj data
         try:
-            x = parse("$..representations").find(json2)
-            out['shape_representation_ref_obj'] = x[0].value[0]['ref']
-            s = "$..data[?(@.type=='shapeRepresentation' " + \
-                "& @.globalId == '"+str(x[0].value[0]['ref'])+"')]"
-            a_obj = parse(s).find(self.data)[0].value["items"][0]
-            #
-            out['OBJ'] = a_obj
+            if(self.get_obj):
+                x = parse("$..representations").find(json2)
+                out['shape_representation_ref_obj'] = x[0].value[0]['ref']
+                s = "$..data[?(@.type=='shapeRepresentation' " + \
+                    "& @.globalId == '"+str(x[0].value[0]['ref'])+"')]"
+                a_obj = parse(s).find(self.data)[0].value["items"][0]
+                #
+                out['OBJ'] = a_obj
+            else:
+                out['OBJ'] = "suppressed"
+
         except:
             pass
         return out
