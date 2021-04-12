@@ -42,7 +42,7 @@
 		<script src="{{url_for('static', filename='nsQuery.js')}}"></script>
 		<div>
 			<label>Search for</label>
-			<input type="text" value="$..walls[*]" id="jsonpath-query" />
+			<textarea id="jsonpath-query" rows="3" cols="32"> </textarea>
 			<button id="btn_search" onclick="search()">JsonPath Search</button>
 			<div id="jsonpath-return"></div>
 			<br />
@@ -57,6 +57,7 @@
 	<script>
 		const inputData= {{data|safe}};
 		init(inputData);
+		document.getElementById('jsonpath-query').value="$..walls[*]";
 		document.getElementById('btn_search').addEventListener('onclick', search);
 	</script>
 </html>
