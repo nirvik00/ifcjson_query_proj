@@ -33,6 +33,13 @@ def test2():
     return res
 
 
+def test3():
+    out_file = "simplified_out3.json"
+    with open(out_file, "r") as f:
+        res = json.load(f)
+    return res
+
+
 def run_driver_proc():
     inp_file = "ifcJsonData.json"
     #

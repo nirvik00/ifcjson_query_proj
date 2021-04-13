@@ -24,8 +24,7 @@
 		></script>
 	</head>
 	<body>
-		<div id="viewer3d"></div>
-		<div id="UI-1">
+		<div id="header">
 			<table>
 				<tr>
 					<td>
@@ -37,16 +36,32 @@
 						</button>
 					</td>
 					<td>
-						<button id="textQuery"><a href="/query">Text - Query</a></button>
+						<button id="interactiveQuery">
+							<a href="/interactiveQuery">Interactive - Query</a>
+						</button>
+					</td>
+					<td>
+						<button id="jsonpathQuery">
+							<a href="/jsonpathQuery">JsonPath - Query</a>
+						</button>
+					</td>
+					<td>
+						<button id="jsonLdQuery">
+							<a href="/jsonLdQuery">JsonLD - Query</a>
+						</button>
 					</td>
 				</tr>
 			</table>
+		</div>
+		<div id="viewer3d"></div>
+		<div id="main-proc">
 			<div id="info_div">
 				<script
 					type="text/javascript"
 					src="{{url_for('static', filename='nsBtnNavigate.js')}}"
 				></script>
-				<h1>Viewer3d & Query</h1>
+				<br />
+				<h3>Viewer3d & Query</h3>
 				<table>
 					<tr>
 						<td>Spaces</td>

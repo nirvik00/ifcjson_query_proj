@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+		></script>
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='lib_jsonld.js')}}"
+		></script>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+	</head>
+	<body>
+		<div id="header">
+			<table>
+				<tr>
+					<td>
+						<button id="rawData"><a href="/">View raw data</a></button>
+					</td>
+					<td>
+						<button id="view3dquery">
+							<a href="/run">Viewer3d - Query</a>
+						</button>
+					</td>
+					<td>
+						<button id="interactiveQuery">
+							<a href="/interactiveQuery">Interactive - Query</a>
+						</button>
+					</td>
+					<td>
+						<button id="jsonpathQuery">
+							<a href="/jsonpathQuery">JsonPath - Query</a>
+						</button>
+					</td>
+					<td>
+						<button id="jsonLdQuery">
+							<a href="/jsonLdQuery">JsonLD - Query</a>
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='nsBtnNavigate.js')}}"
+		></script>
+
+		<div id="main-proc">
+			<br />
+			<h3>JSON LD Framing-Illustration</h3>
+			<p>
+				Data is loaded. Run jsonpath query against it. Sample query provided.
+			</p>
+			<br />
+			<textarea id="jsonld-query" rows="30" cols="100"> </textarea>
+			<br />
+			<button id="btn_search" onclick="genFrame()">JsonLD Framing</button>
+			<button id="btn_default" onclick="loadDefault()">Default Framing</button>
+			<div id="jsonld-return"></div>
+			<br />
+		</div>
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='nsJsonLD.js')}}"
+		></script>
+		<script>
+			const inputData={{data|safe}};
+			         init();
+		</script>
+	</body>
+</html>

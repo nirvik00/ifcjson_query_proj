@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>text-query</title>
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='lib_jsonpath.js')}}"
+		></script>
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+		></script>
+		<script src="{{url_for('static', filename='nsQuery.js')}}"></script>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+	</head>
+	<body>
+		<div id="header">
+			<table>
+				<tr>
+					<td>
+						<button id="rawData"><a href="/">View raw data</a></button>
+					</td>
+					<td>
+						<button id="view3dquery">
+							<a href="/run">Viewer3d - Query</a>
+						</button>
+					</td>
+					<td>
+						<button id="interactiveQuery">
+							<a href="/interactiveQuery">Interactive - Query</a>
+						</button>
+					</td>
+					<td>
+						<button id="jsonpathQuery">
+							<a href="/jsonpathQuery">JsonPath - Query</a>
+						</button>
+					</td>
+					<td>
+						<button id="jsonLdQuery">
+							<a href="/jsonLdQuery">JsonLD - Query</a>
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<script
+			type="text/javascript"
+			src="{{url_for('static', filename='nsBtnNavigate.js')}}"
+		></script>
+
+		<div id="main-proc">
+			<br />
+			<h3>Interactive Query</h3>
+			<label>Reset Search / Show Building Elements</label>
+			<button id="btnGotoRoot" onclick="gotoRoot()">Goto Root</button>
+			<div id="data-container" style="margin-left: 50px"></div>
+
+			<script>
+				const inputData= {{data|safe}};
+				init(inputData);
+			</script>
+		</div>
+	</body>
+</html>

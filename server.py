@@ -20,16 +20,25 @@ def run_proc_viewer():
     return render_template("viewer.html", data=res)
 
 
-@app.route('/query', methods=["GET", "POST"])
-def run_proc_graph():
+@app.route('/interactiveQuery', methods=["GET", "POST"])
+def run_proc_interative_query():
     res = json.dumps(driver.test2())
     print("successfully passing data.."+str(len(res)))
-    return render_template("query.html", data=res)
+    return render_template("interactiveQuery.html", data=res)
 
 
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-    return True
+@app.route('/jsonpathQuery', methods=["GET", "POST"])
+def run_proc_jsonpath_query():
+    res = json.dumps(driver.test2())
+    print("successfully passing data.."+str(len(res)))
+    return render_template("jsonpathQuery.html", data=res)
+
+
+@app.route('/jsonLdQuery', methods=['GET', 'POST'])
+def run_proc_jsonld_query():
+    res = json.dumps(driver.test2())
+    print("successfully passing data.."+str(len(res)))
+    return render_template("jsonLdQuery.html", data=res)
 
 
 if __name__ == "__main__":

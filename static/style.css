@@ -20,14 +20,14 @@ td {
 	padding: 3px;
 }
 
-#UI-1 {
+#main-proc {
 	position: absolute;
 	left: 10px;
-	top: 0px;
-	z-index: 100;
+	top: 20px;
+	z-index: 10;
 	opacity: 50;
 	color: rgb(0, 0, 0);
-	width: 95%;
+	width: 50%;
 }
 p {
 	font-size: 12px;
@@ -38,4 +38,11 @@ a {
 }
 .clickable-element {
 	color: blue;
+}
+
+#header {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 100;
 }
