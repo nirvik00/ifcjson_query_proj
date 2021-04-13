@@ -1,11 +1,10 @@
 function init() {
-	console.log(inputData);
 	loadDefault();
 }
 function loadDefault() {
 	const frame = {
 		'@context': {
-			'@vocab': 'http://ns.org/ifc/4x3/',
+			'@vocab': 'http://bsi.org/ifc/4x3/',
 			'@base': 'http://myfile.org/ids/',
 			ref: '@id',
 			data: '@graph',
@@ -14,14 +13,12 @@ function loadDefault() {
 		},
 		'@type': 'Space',
 		'@explicit': true,
-		'@contains': 'name',
 		objectType: {},
 		name: {},
 		Area: {},
 		Perimeter: {},
 		Volume: {},
 		Number: {},
-		representations: {},
 		hasAssociations: {},
 	};
 	document.getElementById('jsonld-query').value = JSON.stringify(
@@ -32,10 +29,8 @@ function loadDefault() {
 }
 async function genFrame() {
 	console.log('generate solutions');
-	let data = inputData;
 	let frame = JSON.parse(document.getElementById('jsonld-query').value);
-	console.log(typeof data);
-	console.log(typeof frame);
+	console.log(frame);
 	let A = document.querySelector('#jsonld-return');
 	while (A.children.length > 0) {
 		A.removeChild(A.firstChild);
@@ -44,14 +39,17 @@ async function genFrame() {
 	p.innerHTML = 'Results:';
 	A.appendChild(p);
 	let q = document.createElement('textarea');
-	q.rows = '30';
-	q.cols = '100';
-	try {
-		let framedData = await jsonld.frame(data, frame);
-		console.log(framedData);
-		q.value = JSON.stringify(framedData, undefined, 4);
-	} catch (e) {
-		q.value = 'error or did not resolve query';
-	}
+	q.rows = '20';
+	q.cols = '70';
+	var framed = 'waiting for results';
+	q.value = framed;
+
+	framed = await jsonld.frame(inputData, frame);
+	console.log(framed);
+	console.log(framed instanceof Array, framed instanceof Object);
+
+	q.value = JSON.stringify(framed, undefined, 4);
+	A.appendChild(q);
+	//q.value = 'error / no return';
 	A.appendChild(q);
 }

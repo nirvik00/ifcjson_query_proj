@@ -9,10 +9,13 @@
 			type="text/javascript"
 			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
 		></script>
-		<script
+		<!-- <script
 			type="text/javascript"
 			src="{{url_for('static', filename='lib_jsonld.js')}}"
-		></script>
+		></script> -->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jsonld/1.0.0/jsonld.min.js"></script>
+
 		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
 	</head>
 	<body>
@@ -57,7 +60,7 @@
 				Data is loaded. Run jsonpath query against it. Sample query provided.
 			</p>
 			<br />
-			<textarea id="jsonld-query" rows="30" cols="100"> </textarea>
+			<textarea id="jsonld-query" rows="20" cols="70"> </textarea>
 			<br />
 			<button id="btn_search" onclick="genFrame()">JsonLD Framing</button>
 			<button id="btn_default" onclick="loadDefault()">Default Framing</button>
