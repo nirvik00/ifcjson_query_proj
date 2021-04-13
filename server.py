@@ -12,8 +12,10 @@ app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 def run_init():
     res = json.dumps(driver.test())
+    res2 = json.dumps(driver.test2())
+    res3 = json.dumps(driver.test3())
     # return jsonify({"data": res})
-    return render_template('rawData.html', data=res)
+    return render_template('rawData.html', data=[res, res2, res3])
 
 
 @app.route('/run', methods=["GET", "POST"])

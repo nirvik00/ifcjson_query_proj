@@ -25,11 +25,6 @@
 						<button id="view3dquery"><a href="/run">Viewer3d - Query</a></button>
 					</td>
 					<td>
-						<button id="interactiveQuery">
-							<a href="/interactiveQuery">Interactive - Query</a>
-						</button>
-					</td>
-					<td>
 						<button id="jsonpathQuery">
 							<a href="/jsonpathQuery">JsonPath - Query</a>
 						</button>
@@ -39,6 +34,11 @@
 							<a href="/jsonLdQuery">JsonLD - Query</a>
 						</button>
 					</td>
+					<td>
+						<button id="interactiveQuery">
+							<a href="/interactiveQuery">Interactive - Query</a>
+						</button>
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -46,15 +46,20 @@
 		<div id="main-proc">
 			<br />
 			<h3>Data processed on server using jsonLD framing & jsonpath</h3>
-			<p>open in console</p>
-			<br />
-			(mac: command + alt + i
-			<br />
-			win: F12)
+			<label>Ifc Json</label><br/>
+			<textarea id="d1" rows="25" cols="100"></textarea>
+			<label>Json-LD & Json Path Processes-1</label><br/>
+			<textarea id="d2" rows="25" cols="100"></textarea>
+			<label>Json-LD & Json Path Processes-1</label><br/>
+			<textarea id="d3" rows="25" cols="100"></textarea>
+
 			<script>
-				const inputData2= {{data|safe}};
+				const inputData= {{data|safe}};
 				console.clear();
-				console.log(inputData2);
+				document.getElementById("d1").value=JSON.stringify(JSON.parse(inputData[2]), undefined, 4);
+				document.getElementById("d2").value=JSON.stringify(JSON.parse(inputData[0]), undefined, 4);
+				document.getElementById("d3").value=JSON.stringify(JSON.parse(inputData[1]), undefined, 4);
+
 			</script>
 		</div>
 	</body>
